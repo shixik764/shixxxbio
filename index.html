@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Константин Кирюхин (AKA Шикси) - Биография</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #333333;
+            --text-color: #000000;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            --transition: all 0.2s ease;
+            --container-padding: clamp(15px, 4vw, 40px);
+        }
+        
+        .dark-theme {
+            --primary-color: #ffffff;
+            --secondary-color: #cccccc;
+            --text-color: #ffffff;
+            --bg-color: #000000;
+            --card-bg: #111111;
+            --border-color: #333333;
+            --shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Основной контейнер для центрирования */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 var(--container-padding);
+        }
+        
+        /* Новогодняя гирлянда */
+        .holiday-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+        
+        .holiday-lights.active {
+            opacity: 1;
+        }
+        
+        .light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        /* Анимированная навигация слева */
+        .floating-nav {
+            position: fixed;
+            left: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0 8px 8px 0;
+            padding: 20px 10px;
+            box-shadow: var(--shadow);
+            z-index: 900;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .floating-nav:hover {
+            left: 0;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            0% { left: -200px; opacity: 0; }
+            100% { left: 0; opacity: 1; }
+        }
+        
+        .floating-nav-btn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-size: 14px;
+            white-space: nowrap;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-nav-btn::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            transition: left 0.3s ease;
+        }
+        
+        .floating-nav-btn:hover::before {
+            left: 100%;
+        }
+        
+        .floating-nav-btn:hover {
+            background-color: var(--border-color);
+            transform: translateX(5px);
+        }
+        
+        .floating-nav-btn.active {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+        }
+        
+        .dark-theme .floating-nav-btn.active {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+        
+        /* Модальные окна */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        
+        .privacy-modal {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            animation: modalAppear 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        @keyframes modalAppear {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+            padding: 5px;
+        }
+        
+        /* Основной контент */
+        header {
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        h1 {
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .subtitle {
+            font-size: clamp(14px, 3vw, 18px);
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        /* Кнопка поддержки разработчика */
+        .support-btn-container {
+            position: absolute;
+            top: 50px;
+            left: var(--container-padding);
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .support-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 17px;
+            background:  var(--bg-color);
+            color:  var(--text-color);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+            white-space: nowrap;
+        }
+        
+        .support-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .support-btn:active {
+            transform: translateY(0);
+        }
+        
+        .header-controls {
+            position: absolute;
+            top: 50px;
+            right: var(--container-padding);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .theme-btn, .settings-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text-color);
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .theme-btn:hover, .settings-btn:hover {
+            background-color: var(--border-color);
+            transform: rotate(15deg);
+        }
+        
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        .section {
+            padding: clamp(20px, 5vw, 40px) 0;
+            animation: fadeIn 0.5s ease-out;
+            scroll-margin-top: 20px;
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        h2 {
+            font-size: clamp(22px, 4vw, 28px);
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            text-align: left;
+        }
+        
+        h3 {
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            color: var(--primary-color);
+            text-align: left;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: clamp(14px, 2vw, 16px);
+            line-height: 1.6;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+        
+        /* Книги */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 2000px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .book-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: var(--transition);
+            padding: 25px;
+            cursor: pointer;
+            background-color: var(--card-bg);
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background-color: var(--border-color);
+        }
+        
+        .book-logo {
+            font-size: clamp(40px, 8vw, 60px);
+            color: var(--primary-color);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .book-card:hover .book-logo {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .book-info {
+            flex: 1;
+        }
+        
+        /* Дискография стили */
+        .discography {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+            align-items: stretch;
+        }
+        
+        @media (max-width: 2000px) {
+            .discography {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        .album {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+        
+        .album:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .album-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .album-link-hint {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-style: italic;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            margin-top: auto;
+        }
+        
+        .album:hover .album-link-hint {
+            opacity: 1;
+        }
+        
+        .album-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .album-img {
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .album-img i {
+            font-size: clamp(60px, 10vw, 80px);
+            color: var(--bg-color);
+            transition: var(--transition);
+        }
+        
+        .album:hover .album-img i {
+            transform: scale(1.1);
+        }
+        
+        .album-title {
+            font-weight: bold;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        .album-year {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        /* Стримы */
+        .streaming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .streaming-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .platform-card {
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+            background-color: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .platform-card:hover {
+            background-color: var(--border-color);
+            transform: translateY(-5px);
+        }
+        
+        .platform-logo {
+            font-size: clamp(35px, 8vw, 50px);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        
+        .platform-card:hover .platform-logo {
+            transform: scale(1.1);
+        }
+        
+        .twitch-logo {
+            color: #9146FF;
+        }
+        
+        .youtube-logo {
+            color: #FF0000;
+        }
+        
+        /* Контакты */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .contacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .contact-card {
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            width: 100%;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px;
+            transition: var(--transition);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+        }
+        
+        .contact-link:hover {
+            background-color: var(--border-color);
+            transform: translateX(5px);
+        }
+        
+        .contact-link i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .booking-section {
+            margin-top: 30px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            background-color: var(--card-bg);
+        }
+        
+        .booking-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background-color: var(--border-color);
+            color: var(--text-color);
+            text-decoration: none;
+            margin-top: 15px;
+            transition: var(--transition);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .booking-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+        }
+        
+        .feedback-section {
+            margin-top: 30px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            background-color: var(--card-bg);
+        }
+        
+        .feedback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background-color: var(--border-color);
+            color: var(--text-color);
+            text-decoration: none;
+            margin-top: 15px;
+            transition: var(--transition);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .feedback-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Настройки */
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100%;
+            background-color: var(--card-bg);
+            border-left: 1px solid var(--border-color);
+            z-index: 100;
+            padding: 20px;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .settings-panel.active {
+            right: 0;
+            animation: slideInRight 0.3s ease;
+        }
+        
+        @keyframes slideInRight {
+            0% { right: -300px; }
+            100% { right: 0; }
+        }
+        
+        .settings-option {
+            margin-bottom: 20px;
+        }
+        
+        .settings-option h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--border-color);
+            transition: .3s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--bg-color);
+            transition: .3s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        /* Футер */
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            color: var(--secondary-color);
+            font-size: 14px;
+            width: 100%;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 0;
+        }
+        
+        /* Центрирование для логотипов Twitch и YouTube */
+        .platform-card h3 {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .platform-card p {
+            text-align: center;
+            width: 100%;
+        }
+        
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 0;
+            }
+            
+            h1 {
+                padding: 0;
+                margin-top: 20px;
+                margin-bottom: 5px;
+            }
+            
+            .subtitle {
+                padding: 0;
+                margin-bottom: 15px;
+            }
+            
+            .header-content {
+                padding: 0;
+            }
+            
+            .support-btn-container {
+                position: static;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 15px;
+                margin-top: 10px;
+                left: 0;
+                right: 0;
+            }
+            
+            .support-btn {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+            
+            .header-controls {
+                position: static;
+                justify-content: center;
+                margin-top: 10px;
+                right: 0;
+            }
+            
+            .floating-nav {
+                display: none;
+            }
+            
+            .section {
+                padding: 25px 0;
+            }
+            
+            h2 {
+                padding-left: 0;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            h3 {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+            
+            .book-card {
+                padding: 20px;
+                flex-direction: column;
+                text-align: left;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .book-logo {
+                font-size: 50px;
+            }
+            
+            .album-img {
+                height: 150px;
+            }
+            
+            .album-img i {
+                font-size: 60px;
+            }
+            
+            .album-info {
+                padding: 20px;
+            }
+            
+            .platform-card {
+                padding: 20px;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .booking-section {
+                padding: 20px;
+            }
+            
+            .feedback-section {
+                padding: 20px;
+            }
+            
+            .settings-panel {
+                width: 100%;
+                right: -100%;
+            }
+            
+            /* Меньше гирлянд для мобильной версии */
+            .holiday-lights .light:nth-child(n+11) {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 20px 0;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+            }
+            
+            .support-btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            
+            .book-logo {
+                font-size: 40px;
+            }
+            
+            .album-img {
+                height: 120px;
+            }
+            
+            .album-img i {
+                font-size: 50px;
+            }
+            
+            /* Еще меньше гирлянд для маленьких экранов */
+            .holiday-lights .light:nth-child(n+8) {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .main-container {
+                padding: 0 15px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .subtitle {
+                font-size: 13px;
+            }
+            
+            .support-btn {
+                padding: 7px 12px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Новогодняя гирлянда -->
+    <div class="holiday-lights" id="holidayLights"></div>
+
+    <!-- Пользовательское соглашение (всегда показывается первым) -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="privacy-modal" id="privacyContent">
+            <!-- Контент будет загружен JavaScript -->
+        </div>
+    </div>
+
+    <!-- Анимированная навигация слева -->
+    <nav class="floating-nav" id="floatingNav">
+        <button class="floating-nav-btn active" data-section="биография">
+            <i class="fas fa-user" style="margin-right: 8px;"></i>Биография
+        </button>
+        <button class="floating-nav-btn" data-section="книги">
+            <i class="fas fa-book" style="margin-right: 8px;"></i>Книги
+        </button>
+        <button class="floating-nav-btn" data-section="песни">
+            <i class="fas fa-music" style="margin-right: 8px;"></i>Песни
+        </button>
+        <button class="floating-nav-btn" data-section="стримы">
+            <i class="fas fa-stream" style="margin-right: 8px;"></i>Стримы
+        </button>
+        <button class="floating-nav-btn" data-section="контакты">
+            <i class="fas fa-address-book" style="margin-right: 8px;"></i>Контакты
+        </button>
+    </nav>
+
+    <!-- Настройки -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="modal-header">
+            <h2>Настройки</h2>
+            <button class="close-btn" id="closeSettingsBtn">&times;</button>
+        </div>
+        
+        <div class="settings-option">
+            <h3>Тема</h3>
+            <div style="display: flex; gap: 10px;">
+                <button class="floating-nav-btn theme-select-btn" data-theme="light">Светлая</button>
+                <button class="floating-nav-btn theme-select-btn" data-theme="dark">Тёмная</button>
+            </div>
+        </div>
+        
+        <div class="settings-option">
+            <h3>Новогоднее оформление</h3>
+            <label class="switch">
+                <input type="checkbox" id="holidayToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div style="margin-top: 40px; font-size: 12px; color: var(--secondary-color); text-align: center;">
+            <p>Версия сайта: 5.0</p>
+        </div>
+    </div>
+
+    <!-- Основной контент (скрыт до принятия соглашения) -->
+    <div id="mainContent" style="display: none;">
+        <header>
+            <div class="main-container">
+                <!-- Кнопка поддержки разработчика -->
+                <div class="support-btn-container">
+                    <a href="https://www.donationalerts.com/r/shixxxy" class="support-btn" target="_blank" title="Поддержать разработчика сайта">
+                        <i class="fas fa-heart"></i>
+                        Поддержать
+                    </a>
+                </div>
+                
+                <div class="header-content">
+                    <h1>Константин Кирюхин</h1>
+                    <p class="subtitle">AKA Шикси — автор, музыкант, стример</p>
+                </div>
+                
+                <div class="header-controls">
+                    <button class="settings-btn" id="settingsBtn" title="Настройки">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="theme-btn" id="themeToggleBtn" title="Сменить тему">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="container">
+            <!-- Биография -->
+            <section id="биография" class="section">
+                <div class="main-container">
+                    <h2>Биография</h2>
+                    <p>Кирюхин Константин Андреевич, также известный как Шикси — автор книг, общественный деятель, пользователь общедоступной сети интернет. Родился 28 сентября 2007 года.</p>
+                    <p>За время творческой деятельности реализовал множество проектов в разных областях:</p>
+                    <ul>
+                        <li>Создание музыки под псевдонимами Zalupa.mp3 и k1rukh1n</li>
+                        <li>Дизайн обложек для музыкальных релизов</li>
+                        <li>Написание литературных произведений</li>
+                        <li>Разработка игр через компанию ShixxxyyCo</li>
+                        <li>Вёрстка сайтов и веб-разработка</li>
+                        <li>Проведение стримов на Twitch и YouTube</li>
+                        <li>Работа в различных креативных направлениях</li>
+                    </ul>
+                    <p>Философия творчества основана на свободе самовыражения, минимализме и экспериментах с формами.</p>
+                </div>
+            </section>
+            
+            <!-- Книги -->
+            <section id="книги" class="section">
+                <div class="main-container">
+                    <h2>Книги</h2>
+                    <div class="books-grid" id="booksContainer">
+                        <!-- Книги будут добавляться динамически -->
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Песни -->
+            <section id="песни" class="section">
+                <div class="main-container">
+                    <h2>Песни</h2>
+                    
+                    <h3 style="text-align: left;">Zalupa.mp3</h3>
+                    <div class="discography">
+                        <a href="https://soundcloud.com/zalupnya" class="album-link" target="_blank">
+                            <div class="album">
+                                <div class="album-img">
+                                    <i class="fab fa-soundcloud"></i>
+                                </div>
+                                <div class="album-info">
+                                    <div class="album-title">SoundCloud</div>
+                                    <div class="album-year">Все релизы</div>
+                                    <p>Экспериментальный проект, где я не ограничиваю себя рамками жанров и стилей. Пространство для творческой свободы, импровизации и смелых экспериментов со звуком.</p>
+                                    <div class="album-link-hint">Нажмите чтобы послушать →</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <h3 style="text-align: left; margin-top: 30px;">k1rukh1n</h3>
+                    <div class="discography">
+                        <a href="https://band.link/k1rukh1nmusic" class="album-link" target="_blank">
+                            <div class="album">
+                                <div class="album-img">
+                                    <i class="fas fa-compact-disc"></i>
+                                </div>
+                                <div class="album-info">
+                                    <div class="album-title">Все платформы</div>
+                                    <div class="album-year">Все релизы</div>
+                                    <p>Более сдержанный и целостный проект, где каждая композиция — часть единого нарратива. Фокус на цельности звучания, продуманных аранжировках и глубине содержания.</p>
+                                    <div class="album-link-hint">Нажмите чтобы послушать →</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Стримы -->
+            <section id="стримы" class="section">
+                <div class="main-container">
+                    <h2>Стримы</h2>
+                    <p>Регулярные трансляции на игровых и творческих платформах.</p>
+                    <div class="streaming-grid">
+                        <a href="https://www.twitch.tv/shixxxyy" class="platform-card" target="_blank">
+                            <div class="platform-logo twitch-logo">
+                                <i class="fab fa-twitch"></i>
+                            </div>
+                            <h3>Twitch</h3>
+                            <p>Прямые трансляции, игровые стримы, live-общение</p>
+                        </a>
+                        
+                        <a href="https://www.youtube.com/@Shixyyy" class="platform-card" target="_blank">
+                            <div class="platform-logo youtube-logo">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <h3>YouTube</h3>
+                            <p>Видео, стримы, творческий контент</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Контакты -->
+            <section id="контакты" class="section">
+                <div class="main-container">
+                    <h2>Контакты</h2>
+                    <div class="contacts-grid">
+                        <div class="contact-card">
+                            <h3>Музыкальные проекты</h3>
+                            <div class="contact-links">
+                                <a href="mailto:zalupa.music@gmail.com" class="contact-link">
+                                    <i class="fas fa-envelope"></i> zalupa.music@gmail.com
+                                </a>
+                                <a href="mailto:k1rukh1n.music@gmail.com" class="contact-link">
+                                    <i class="fas fa-envelope"></i> k1rukh1n.music@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <h3>Telegram</h3>
+                            <div class="contact-links">
+                                <a href="https://t.me/k1rukh1n?direct" class="contact-link" target="_blank">
+                                    <i class="fab fa-telegram"></i> k1rukh1n | ZALUPA.MP3
+                                </a>
+                                <a href="https://t.me/shixxxyy?direct" class="contact-link" target="_blank">
+                                    <i class="fab fa-telegram"></i> Шикси
+                                </a>
+                                <a href="https://t.me/ShixxxyyCo" class="contact-link" target="_blank">
+                                    <i class="fab fa-telegram"></i> ShixxxyyCo
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <h3>Другие платформы</h3>
+                            <div class="contact-links">
+                                <a href="https://tapy.me/shixxxyy" class="contact-link" target="_blank">
+                                    <i class="fas fa-link"></i> Все ссылки
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Обратная связь -->
+                <div class="main-container">
+                    <div class="feedback-section">
+                        <h3>Обратная связь</h3>
+                        <p>По вопросам работы сайта или предложения по улучшению</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScUV4Z0uSkOGmgtLy3BdAvpdOw12FVTX9FecZFjJCcCTRGldw/viewform?usp=sharing&ouid=111370198892500097474" 
+                           class="feedback-link" target="_blank">
+                            <i class="fas fa-comment-dots"></i> Написать сообщение
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <div class="main-container">
+                <p>© 2026 Все права защищены</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Элементы DOM
+            const privacyModal = document.getElementById('privacyModal');
+            const privacyContent = document.getElementById('privacyContent');
+            const mainContent = document.getElementById('mainContent');
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            const themeSelectBtns = document.querySelectorAll('.theme-select-btn');
+            const settingsBtn = document.getElementById('settingsBtn');
+            const settingsPanel = document.getElementById('settingsPanel');
+            const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+            const holidayToggle = document.getElementById('holidayToggle');
+            const holidayLights = document.getElementById('holidayLights');
+            const floatingNav = document.getElementById('floatingNav');
+            const floatingNavBtns = document.querySelectorAll('.floating-nav-btn');
+            const sections = document.querySelectorAll('.section');
+            const booksContainer = document.getElementById('booksContainer');
+            
+            // Переменные состояния
+            let currentTheme = localStorage.getItem('theme') || 'light';
+            let holidayMode = localStorage.getItem('holidayMode') === 'true';
+            let currentSection = 'биография';
+            
+            // Всегда показываем пользовательское соглашение при входе
+            // (удаляем проверку localStorage)
+            
+            // Мемное пользовательское соглашение
+            function loadPrivacyPolicy() {
+                privacyContent.innerHTML = `
+                    <div class="modal-header">
+                        <h2>🤝 Договор о взаимном уважении</h2>
+                    </div>
+                    <p><strong>Дорогой посетитель!</strong></p>
+                    <p>Прежде чем ты продолжишь свой путь по этому скромному уголку интернета, тебе необходимо принять наши условия. Не волнуйся, мы не собираем твои данные (нам и своих хватает).</p>
+                    
+                    <p><strong>Заходя на этот сайт, ты обязуешься:</strong></p>
+                    <ul>
+                        <li>🗿 Уважать автора, его творчество и его право называть музыку "экспериментальной"</li>
+                        <li>🎨 Признавать, что минимализм — это сознательный выбор, а не лень</li>
+                        <li>🎵 Не притворяться, что никогда не слышал про Zalupa.mp3 (это невозможно)</li>
+                        <li>📚 Понимать, что "День пися попы" — это глубокомысленная сатира, а не детский лепет</li>
+                        <li>🎮 Ценить стримы за контент, а не за графику (у нас её нет)</li>
+                        <li>🤝 Относиться к Шикси как к человеку, а не как к интернет-мему (хотя он и то, и другое)</li>
+                        <li>🚫 Не пытаться найти здесь "нормальный" дизайн — его тут специально нет</li>
+                        <li>💀 Принять тот факт, что некоторые шутки могут быть слишком умными для тебя</li>
+                    </ul>
+                    
+                    <p><strong>Взамен мы обещаем:</strong></p>
+                    <ul>
+                        <li>🎶 Не спамить тебя уведомлениями (у нас нет на это времени)</li>
+                        <li>🔒 Не продавать твои данные (они нам не нужны)</li>
+                        <li>🎁 Делиться творчеством в его чистом виде, без лишних украшений</li>
+                        <li>🤣 Поддерживать здоровый уровень абсурда на сайте</li>
+                        <li>📖 Продолжать писать книги с странными названиями</li>
+                    </ul>
+                    
+                    <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" id="privacyCheckbox" style="width: 20px; height: 20px;">
+                        <label for="privacyCheckbox" style="font-size: 14px;"><strong>Я принимаю эти условия и готов(а) погрузиться в мир Шикси</strong></label>
+                    </div>
+                    
+                    <div style="margin-top: 25px; text-align: center;">
+<button class="floating-nav-btn" id="enterUserBtn" style="width: 75px; opacity: 0,5; padding: 15px; font-size: 16px; margin: 0 auto;" disabled>Войти</button>
+                    </div>
+                    
+                    <p style="margin-top: 20px; font-size: 12px; color: var(--secondary-color); text-align: center;">
+                        P.S. Если не согласен — что ты тут забыл?
+                    </p>
+                `;
+                
+                const checkbox = document.getElementById('privacyCheckbox');
+                const enterBtn = document.getElementById('enterUserBtn');
+                
+                checkbox.addEventListener('change', function() {
+                    enterBtn.disabled = !this.checked;
+                    enterBtn.style.opacity = this.checked ? '1' : '0.5';
+                });
+                
+                enterBtn.addEventListener('click', function() {
+                    if (checkbox.checked) {
+                        localStorage.setItem('privacyAccepted', 'true');
+                        privacyModal.style.display = 'none';
+                        mainContent.style.display = 'block';
+                        initSite();
+                    }
+                });
+            }
+            
+            // Всегда показываем соглашение при загрузке
+            loadPrivacyPolicy();
+            privacyModal.style.display = 'flex';
+            
+            // Инициализация сайта (после принятия соглашения)
+            function initSite() {
+                // Установка темы
+                setTheme(currentTheme);
+                themeToggleBtn.querySelector('i').className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                
+                // Новогоднее оформление
+                if (holidayMode) {
+                    holidayToggle.checked = true;
+                    createHolidayLights();
+                }
+                
+                // Загрузка начальных данных
+                loadInitialData();
+                
+                // Навигация с плавающим меню
+                floatingNavBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const sectionId = this.dataset.section;
+                        scrollToSection(sectionId);
+                    });
+                });
+                
+                // Переключение темы
+                themeToggleBtn.addEventListener('click', function() {
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    setTheme(newTheme);
+                    this.querySelector('i').className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                });
+                
+                // Выбор темы в настройках
+                themeSelectBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const theme = this.dataset.theme;
+                        setTheme(theme);
+                        themeToggleBtn.querySelector('i').className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                    });
+                });
+                
+                function setTheme(theme) {
+                    currentTheme = theme;
+                    document.body.className = theme === 'dark' ? 'dark-theme' : '';
+                    localStorage.setItem('theme', theme);
+                    
+                    // Обновляем активную кнопку темы
+                    themeSelectBtns.forEach(b => {
+                        b.classList.remove('active');
+                        if (b.dataset.theme === theme) {
+                            b.classList.add('active');
+                        }
+                    });
+                }
+                
+                // Настройки
+                settingsBtn.addEventListener('click', function() {
+                    settingsPanel.classList.add('active');
+                });
+                
+                closeSettingsBtn.addEventListener('click', function() {
+                    settingsPanel.classList.remove('active');
+                });
+                
+                // Новогоднее оформление
+                holidayToggle.addEventListener('change', function() {
+                    holidayMode = this.checked;
+                    localStorage.setItem('holidayMode', holidayMode);
+                    
+                    if (holidayMode) {
+                        createHolidayLights();
+                    } else {
+                        holidayLights.innerHTML = '';
+                        holidayLights.classList.remove('active');
+                    }
+                });
+                
+                function createHolidayLights() {
+                    holidayLights.innerHTML = '';
+                    const colors = ['#ff0000', '#00ff00', '#ffff00', '#ff00ff', '#00ffff'];
+                    
+                    // Адаптивное количество гирлянд в зависимости от размера экрана
+                    let lightCount = 20;
+                    if (window.innerWidth <= 480) {
+                        lightCount = 8; // Меньше для мобильных
+                    } else if (window.innerWidth <= 768) {
+                        lightCount = 10; // Для планшетов
+                    }
+                    
+                    for (let i = 0; i < lightCount; i++) {
+                        const light = document.createElement('div');
+                        light.className = 'light';
+                        light.style.backgroundColor = colors[i % colors.length];
+                        light.style.animationDelay = `${(i % 5) * 0.3}s`;
+                        holidayLights.appendChild(light);
+                    }
+                    
+                    holidayLights.classList.add('active');
+                }
+                
+                // Закрытие модальных окон
+                window.addEventListener('click', function(e) {
+                    if (e.target === settingsPanel) {
+                        settingsPanel.classList.remove('active');
+                    }
+                });
+                
+                // Адаптация гирлянды при изменении размера окна
+                window.addEventListener('resize', function() {
+                    if (holidayMode && holidayLights.children.length > 0) {
+                        createHolidayLights();
+                    }
+                });
+                
+                // Наблюдатель за секциями для обновления активной навигации
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-50px 0px -50px 0px',
+                    threshold: 0.1
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.id;
+                            currentSection = sectionId;
+                            
+                            // Обновляем активную кнопку в плавающей навигации
+                            floatingNavBtns.forEach(btn => {
+                                btn.classList.remove('active');
+                                if (btn.dataset.section === sectionId) {
+                                    btn.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+                
+                // Начинаем наблюдение за всеми секциями
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            }
+            
+            // Функция прокрутки к секции
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    currentSection = sectionId;
+                    
+                    // Обновляем активную кнопку
+                    floatingNavBtns.forEach(btn => {
+                        btn.classList.remove('active');
+                        if (btn.dataset.section === sectionId) {
+                            btn.classList.add('active');
+                        }
+                    });
+                }
+            }
+            
+            // Загрузка начальных данных
+            function loadInitialData() {
+                // Загрузка книги
+                const book = {
+                    id: 1,
+                    title: "День пися попы",
+                    description: "Сатира на современность или открытие нового жанра. Смелое литературное произведение, исследующее абсурдность современной реальности через призму оригинального авторского стиля.",
+                    readLink: "https://disk.yandex.ru/d/tMnDGLsZLSRi-Q"
+                };
+                
+                addBookToSite(book);
+            }
+            
+            // Добавление книги на сайт
+            function addBookToSite(book) {
+                const bookCard = document.createElement('div');
+                bookCard.className = 'book-card';
+                bookCard.innerHTML = `
+                    <div class="book-logo">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="book-info">
+                        <h3>${book.title}</h3>
+                        <p>${book.description}</p>
+                    </div>
+                `;
+                
+                // Добавляем обработчик клика на всю карточку
+                bookCard.addEventListener('click', function() {
+                    window.open(book.readLink, '_blank');
+                });
+                
+                booksContainer.appendChild(bookCard);
+            }
+            
+            // Адаптация для мобильных устройств
+            function handleMobileView() {
+                if (window.innerWidth < 768) {
+                    document.body.classList.add('mobile-view');
+                    // Скрываем плавающую навигацию на мобильных
+                    floatingNav.style.display = 'none';
+                } else {
+                    document.body.classList.remove('mobile-view');
+                    floatingNav.style.display = 'flex';
+                }
+            }
+            
+            // Инициализация адаптивного дизайна
+            handleMobileView();
+            window.addEventListener('resize', handleMobileView);
+            
+            // Плавная прокрутка при клике на якорные ссылки
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        scrollToSection(targetId);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
